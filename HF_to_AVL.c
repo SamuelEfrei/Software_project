@@ -130,6 +130,5 @@ int main(){
     tree = *AVLT;
     ht = testHT();
     HF_to_AVL_char(HT, ht, AVLT);
-    print2DUtil(tree);
     return 0;
 }
