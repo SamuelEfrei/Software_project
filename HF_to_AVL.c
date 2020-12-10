@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 // The purpose of the following functions is to create an AVL tree that order characters and their occurences from a Huffman tree.
-// This allows the user to search occurences of characters more easily, because you don't have to search in 
+// This allows the user to search occurences of characters more easily, because you don't have to search in the whole Huffman tree to get a specific character's occurence.
 
 
 typedef struct Node{
@@ -46,6 +46,8 @@ int tree_depth(Node* tree){
     return height;
 }
 
+// The function balance_factor tells us the balance foactor of a specific node in the AVL tree. If it is unbalanced, rotations will be made between nodes.
+
 int balance_factor(Node* tree){
     if(tree == NULL){
         return 0;
@@ -85,7 +87,7 @@ void left_rotation(Node** tree){
     }
 }
 
-// The function AVL() balance the tree with right or left rotation(s). We must use it each time we add a node to the tree.
+// The function AVL() balance the tree with right or left rotations. We must use it each time we add a node to the tree, otherwise it would be to difficult and time-consuming to balance the tree.
 
 void AVL(Node** tree){
     if (*tree != NULL){
@@ -108,7 +110,7 @@ void AVL(Node** tree){
 }
 
 
-// The function HF_to_AVL_char() looks for each leaf in the Huffman tree and put it into a new AVL tree. 
+// The function HF_to_AVL_char() looks for each node that has data in the Huffman tree and put it into a new AVL tree. 
 // Note that the AVL tree is ordering nodes according to the character they have, not according to their occurence.
 
 void HF_to_AVL_char(Node** HT,Node* ht, Node** AVLT){
